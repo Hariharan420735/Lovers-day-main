@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>sample for you</title>
+  <style>
+    body {
+      margin: 0px;
+    }
+
+    canvas {
+      background-color: #312;
+    }
+
+    .main {
+      display: flex;
+      justify-content: center;
+    }
+
+    .bg {
+      position: fixed;
+      z-index: 0;
+    }
+
+    .content {
+      height: 100%;
+      width: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+      z-index: 1;
+      text-align: center;
+      position: relative;
+      top: 100px;
+      left: 0%;
+    }
+
+    .quote1 {
+      height: 220px;
+      width: 220px;
+      box-shadow: 0 3px 4px;
+      border-radius: 50px;
+      backdrop-filter: blur(10px);
+      padding: 0 20px;
+      z-index: 1;
+      text-align: center;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+
+    .quote2 {
+      height: 220px;
+      width: 220px;
+      box-shadow: 0px 3px 4px;
+      border-radius: 50px;
+      backdrop-filter: blur(10px);
+      text-align: center;
+      z-index: 1;
+      position: absolute;
+      top: 50%;
+      left: 100px;
+    }
+
+    .quote3 {
+      height: 220px;
+      width: 250px;
+      box-shadow: 0 3px 4px;
+      border-radius: 50px;
+      backdrop-filter: blur(10px);
+      text-align: center;
+      z-index: 1;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .quote4 {
+      height: 220px;
+      width: 240px;
+      box-shadow: 0 3px 4px;
+      border-radius: 50px;
+      backdrop-filter: blur(10px);
+      text-align: center;
+      z-index: 1;
+      position: absolute;
+      top: 50%;
+      right: 100px;
+    }
+
+    .quote5 {
+      height: 200px;
+      width: 220px;
+      box-shadow: 0 3px 4px;
+      border-radius: 50px;
+      backdrop-filter: blur(10px);
+      text-align: center;
+      z-index: 1;
+      position: absolute;
+      top: 70%;
+    }
+
+    .download {
+      z-index: 1;
+    }
+
+    a {
+      text-decoration: dotted;
+      color: white;
+    }
+
+    button {
+      height: 30px;
+      background-color: transparent;
+      backdrop-filter: blur(20px);
+      text-align: center;
+      border-radius: 30px;
+      position: absolute;
+      top: 20px;
+      left: 45%;
+      border: 0px;
+      box-shadow: 0 3px 4px ;
+
+    }
+    h3{
+       background-color: transparent;
+      backdrop-filter: blur(20px);
+      text-align: center;
+      border-radius: 30px;
+      box-shadow: 0 3px 4px;
+      position: absolute;
+      top: 40px;
+      left: 33%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <div class="bg">
+      <canvas id="testCanvas" width="550" height="500"></canvas>
+    </div>
+    <div class="content">
+      <div class="container">
+        <h1 class="header_text">I know di thango...&#128154</h1>
+        <div class="gif_container">
+          <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif">
+        </div>
+      </div>
+    </div><br>
+    <div class="quote1">
+      <h2>தூரம் இருந்தாலும் என் இதயத்தில் நீ எப்போதும் அருகில் இருக்கிறாய்..❤️</h2>
+    </div>
+    <div class="quote2">
+      <h2>தூரம் என்பது வெறும் எண்கள், அன்பு எல்லைகளை கடந்தது...❤️</h2>
+    </div>
+    <div class="quote3">
+      <h2>உன்னை பார்க்க முடியவில்லை என்றாலும், என் இதயம் உன்னை எப்போதும் உணர்கிறது...❤️</h2>
+    </div>
+    <div class="quote4">
+      <h2>உன் கையை பிடித்து வாழ்நாள் முழுவதும் நடக்க விரும்புகிறேன்...❤️</h2>
+    </div>
+    <div class="quote5">
+      <h2>நீ என் காதல் கதையின் மிக அழகான அத்தியாயம்...❤️</h2>
+    </div>
+    <div class="download"><button><a href="special gift.mp3" download="special gift.mp3">CLICK ME...❤️</a></button>
+      <h3>PLEACE CLICK THE ABOVE BUTTON FOR SPECIAL ONE...❤️</h3>
+    </div>
+  </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+  integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+<script src="https://code.createjs.com/1.0.0/easeljs.min.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1524180/codepen-template-1.0.js"></script>
+<script>
+  var canvas;
+  var stage;
+  var container;
+  var captureContainers;
+  var captureIndex;
+
+  function init() {
+    // create a new stage and point it at our canvas:
+    canvas = document.getElementById("testCanvas");
+    stage = new createjs.Stage(canvas);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    var w = canvas.width;
+    var h = canvas.height;
+
+    container = new createjs.Container();
+    stage.addChild(container);
+
+    captureContainers = [];
+    captureIndex = 0;
+
+    // create a large number of slightly complex vector shapes, and give them random positions and velocities:
+    for (var i = 0; i < 100; i++) {
+      var heart = new createjs.Shape();
+      heart.graphics.beginFill(createjs.Graphics.getHSL(Math.random() * 30 - 45, 100, 50 + Math.random() * 30));
+      heart.graphics.moveTo(0, -12).curveTo(1, -20, 8, -20).curveTo(16, -20, 16, -10).curveTo(16, 0, 0, 12);
+      heart.graphics.curveTo(-16, 0, -16, -10).curveTo(-16, -20, -8, -20).curveTo(-1, -20, 0, -12);
+      heart.y = -100;
+
+      container.addChild(heart);
+    }
+
+    var text = new createjs.Text("", "#312");
+    text.textAlign = "center";
+    text.x = w / 2;
+    text.y = h / 2 - text.getMeasuredLineHeight();
+    stage.addChild(text);
+
+    for (i = 0; i < 100; i++) {
+      var captureContainer = new createjs.Container();
+      captureContainer.cache(0, 0, w, h);
+      captureContainers.push(captureContainer);
+    }
+
+    // start the tick and point it at the window so we can do some work before updating the stage:
+    createjs.Ticker.timingMode = createjs.Ticker.RAF;
+    createjs.Ticker.on("tick", tick);
+  }
+
+  function tick(event) {
+    var w = canvas.width;
+    var h = canvas.height;
+    var l = container.numChildren;
+
+    captureIndex = (captureIndex + 1) % captureContainers.length;
+    stage.removeChildAt(0);
+    var captureContainer = captureContainers[captureIndex];
+    stage.addChildAt(captureContainer, 0);
+    captureContainer.addChild(container);
+
+    // iterate through all the children and move them according to their velocity:
+    for (var i = 0; i < l; i++) {
+      var heart = container.getChildAt(i);
+      if (heart.y < -50) {
+        heart._x = Math.random() * w;
+        heart.y = h * (1 + Math.random()) + 50;
+        heart.perX = (1 + Math.random() * 2) * h;
+        heart.offX = Math.random() * h;
+        heart.ampX = heart.perX * 0.1 * (0.15 + Math.random());
+        heart.velY = -Math.random() * 2 - 1;
+        heart.scale = Math.random() * 2 + 1;
+        heart._rotation = Math.random() * 40 - 20;
+        heart.alpha = Math.random() * 0.75 + 0.05;
+        heart.compositeOperation = Math.random() < 0.33 ? "lighter" : "source-over";
+      }
+      var int = (heart.offX + heart.y) / heart.perX * Math.PI * 2;
+      heart.y += heart.velY * heart.scaleX / 2;
+      heart.x = heart._x + Math.cos(int) * heart.ampX;
+      heart.rotation = heart._rotation + Math.sin(int) * 30;
+    }
+
+    captureContainer.updateCache("source-over");
+
+    // draw the updates to stage:
+    stage.update(event);
+  }
+
+  init();
+</script>
+
+</html>
